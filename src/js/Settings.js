@@ -10,8 +10,9 @@ export default class Settings {
   }
 
   setSettings(key, option) {
-    if (!this.default.get(key).includes(option)) {
-      throw new Error(`Варианты для опции ${key}: ${this.default.get(key)}`);
+    this.setting = this.default.get(key);
+    if (!this.setting.includes(option)) {
+      throw new Error(`Варианты для опции ${key}: ${this.setting}`);
     }
     this.userSettings.set(key, option);
   }
